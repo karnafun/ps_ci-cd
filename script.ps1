@@ -1,5 +1,8 @@
+param(
+    [Parameter()]
+    [String]$RequestedCocktail
+)
 
-$RequestedCocktail = "mojito"
 
 $res = Invoke-RestMethod "www.thecocktaildb.com/api/json/v1/1/search.php?s=$($RequestedCocktail)"  
 $drinkName =$res.drinks[0].strDrink
