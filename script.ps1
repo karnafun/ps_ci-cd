@@ -1,8 +1,21 @@
-param(
-    [Parameter()]
-    [String]$RequestedCocktail
-)
-$Env:MyVariable
+Import-Module -Force './ElCocktail/ElCocktail.psm1'
+Get-command -Module ElCocktail
+
+$cocktail = GetCocktail('Mojito')
+write-host $cocktail.name
+write-host $cocktail.glassType 
+# [ElCocktail]::new('margarita')
+
+
+
+
+
+# param(
+#     [Parameter()]
+#     [String]$RequestedCocktail
+# )
+# $Env:MyVariable
+
 
 # $res = Invoke-RestMethod "www.thecocktaildb.com/api/json/v1/1/search.php?s=$($Env:MyVariable)"  
 # $drinkName =$res.drinks[0].strDrink
