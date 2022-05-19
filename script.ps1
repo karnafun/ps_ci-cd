@@ -3,8 +3,8 @@ param(
     [String]$RequestedCocktail
 )
 
-
-$res = Invoke-RestMethod "www.thecocktaildb.com/api/json/v1/1/search.php?s=$($Env.RequestedCocktail)"  
+write-host "env param: "
+$res = Invoke-RestMethod "www.thecocktaildb.com/api/json/v1/1/search.php?s=$($Env:RequestedCocktail)"  
 $drinkName =$res.drinks[0].strDrink
 $glassType = $res.drinks[0].strGlass
 $ingredients = New-Object Collections.Generic.List[string]
