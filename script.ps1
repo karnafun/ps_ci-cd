@@ -1,7 +1,7 @@
 Import-Module -Force './ElCocktail/ElCocktail.psm1'
 Get-command -Module ElCocktail
 
-$cocktail = GetCocktail('Mojito')
+$cocktail = GetCocktail('Margarita')
 write-host $cocktail.name
 write-host $cocktail.glassType 
 
