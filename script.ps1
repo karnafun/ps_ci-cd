@@ -4,11 +4,6 @@ Get-command -Module ElCocktail
 $cocktail = GetCocktail('Mojito')
 write-host $cocktail.name
 write-host $cocktail.glassType 
-# [ElCocktail]::new('margarita')
-
-
-
-
 
 # param(
 #     [Parameter()]
