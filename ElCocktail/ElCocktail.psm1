@@ -54,8 +54,9 @@ Class Cocktail{
         }
     }
 }
+
 function GetCocktail([string]$name){
     return [Cocktail]::new($name)
-
 }
+
 Export-ModuleMember -Function GetCocktail

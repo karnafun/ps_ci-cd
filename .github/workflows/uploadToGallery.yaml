@@ -27,7 +27,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Publish with powershell
+      - name: Publish to Powershell Gallery
         env:
           API_KEY: ${{ secrets.Powershell_Gallery_Api_Key }}
         run: |
