@@ -34,6 +34,6 @@ jobs:
           $version = "$($m.version.major).$($m.version.minor+1).0.0"
           write-host m - $m
           write-host version $m.version
-          write-host version major $m.version.major
+          write-host version major $m.version[0]
           write-host "Calculated version is :" $version
           #.\publish.ps1 -version 1.0.0.2 apiKey $env:API_KEY
