@@ -31,5 +31,6 @@ jobs:
           API_KEY: ${{ secrets.Powershell_Gallery_Api_Key }}
         run: |
           $m = Find-Module 'ElCocktail'
-          $version = "$($m.version.major).$($m.version.minor+1)"
-          .\publish.ps1 -version $version apiKey $env:API_KEY
+          $version = "$($m.version.major).$($m.version.minor+1).0.0"
+          
+          .\publish.ps1 -version [version]($version) apiKey $env:API_KEY
