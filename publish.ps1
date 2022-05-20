@@ -34,7 +34,7 @@ foreach ($FilePath in $ModulePSM) {
 
 # Now replace version in psd1
 
-$fileContent = Get-Content "$scriptPath\src\BuildUtils.psd1.source"
+$fileContent = Get-Content "$scriptPath\BuildUtils.psd1.source"
 $fileContent = $fileContent -replace '{{version}}', $version
 $fileContent = $fileContent -replace '{{preReleaseTag}}', $preReleaseTag 
 Set-Content "$scriptPath\BuildUtils\BuildUtils.psd1" -Value $fileContent  -Force
