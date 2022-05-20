@@ -30,10 +30,6 @@ jobs:
         env:
           API_KEY: ${{ secrets.Powershell_Gallery_Api_Key }}
         run: |
-          dotnet tool restore
-          $gvOutput = dotnet tool run dotnet-gitversion /config GitVersion.yml | Out-String | ConvertFrom-Json
-          $preLabel = $gvOutput.NuGetPreReleaseTagV2
-
-          $preReleaseTag = "-" + $preLabel
-          Write-Host "Publishing -version " + $gvOutput.MajorMinorPatch + "-preReleaseTag " + $preReleaseTag + " -apiKey xxx"
-          .\publish.ps1 -version $gvOutput.MajorMinorPatch -preReleaseTag $preReleaseTag -apiKey $env:API_KEY
+          $m = Find-Module 'ElCocktail'
+          $version = "$($m.version.major).$($m.version.minor).$($m.version.build+1).0"
+          .\publish.ps1 -version $version apiKey $env:API_KEY

@@ -4,9 +4,15 @@ param (
     [string] $apiKey
 )
 
+
+
+
+
+
+
 New-ModuleManifest `
     -Path .\ElCocktail\ElCocktail.psd1 `
-    -ModuleVersion "0.0.0.3" `
+    -ModuleVersion $version `
     -Author "Dor Danai" `
     -Description "Get Cocktail Information from thecocktaildb.com"
 
