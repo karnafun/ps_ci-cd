@@ -1,9 +1,5 @@
-# This is a basic workflow to help you get started with Actions
+name: TestAndPublish
 
-name: Test and Publish
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     # branches: [ "main", "develop", "release/**", "feature/**", "hotfix/**" ]
@@ -12,8 +8,9 @@ on:
     branches: [ develop ]
 
 jobs:
-  unitTests:
-    runs-on: windows-latest
+  Unit-Tests:
+    name: Pester test
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3      
@@ -21,18 +18,20 @@ jobs:
         shell: pwsh
         run: |
           Invoke-Pester Unit.Tests.ps1 -Passthru
-          
-  publish:
-      needs: unitTests        
-      - name: Publish with powershell
+  
+  Publish:
+    needs: Unit-Tests
+    runs-on: windows-latest
+    steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      - name: Publish with powershell
         env:
           API_KEY: ${{ secrets.Powershell_Gallery_Api_Key }}
         run: |
           $m = Find-Module 'ElCocktail'
-          $versionMajor = 1
-          $version = "$($versionMajor).$($m.version.minor+1).0.0"
-          write-host publishing version $version
-          #.\publish.ps1 -version $version apiKey $env:API_KEY
+          $version = "$($m.version.major).$($m.version.minor+1).0.0"
+          write-host "Calculated version is :" $version
+          .\publish.ps1 -version 1.0.0. apiKey $env:API_KEY
