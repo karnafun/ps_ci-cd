@@ -5,7 +5,7 @@ param (
 )
 
 $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
-$srcPath = "$scriptPath\src";
+$srcPath = "$scriptPath\ElCocktail";
 Write-Host "Proceeding to publish all code found in $srcPath"
 
 $outFile = "$scriptPath\BuildUtils\BuildUtils.psm1"
