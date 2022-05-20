@@ -33,6 +33,6 @@ jobs:
         run: |
           $m = Find-Module 'ElCocktail'
           $majorVersion = 1
-          $version = "$($majorVersion).$($m.version.minor+1).0.0"
+          $version = "1.2.0.0"
           write-host "Publishing Version :" $version
           .\publish.ps1 -version $version apiKey $env:API_KEY
