@@ -23,6 +23,6 @@ Describe 'Check Glass Type' {
 
     It 'First ingredient in margarita is Tequila' {
         $cocktail = GetCocktail("Margarita")
-        $cocktail.ingredient[0].name | Should -Be "Tequila"
+        $cocktail.ingredients[0].name | Should -Be "Tequila"
     }
 }
