@@ -20,4 +20,9 @@ Describe 'Check Glass Type' {
         $cocktail = GetCocktail("Margarita")
         $cocktail.glassType | Should -Be "Cocktail glass"
     }
+
+    It 'This Test Will Fail' {
+        $cocktail = GetCocktail("Margarita")
+        $cocktail.glassType | Should -Be "Hotdog"
+    }
 }
