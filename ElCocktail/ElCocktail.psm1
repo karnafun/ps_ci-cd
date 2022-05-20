@@ -42,10 +42,6 @@ Class Cocktail{
 
         
     }
-    [void] GetEvenIntegers(){
-        # this following line doesn't go to the pipeline
-        $this.Integers.Where({ ($_ % 2) -eq 0})
-    }
 
     [void]PrintIngredients(){
         foreach ($ing in $this.ingredients) {
@@ -57,7 +53,6 @@ Class Cocktail{
             
         }
     }
- 
 }
 function GetCocktail([string]$name){
     return [Cocktail]::new($name)

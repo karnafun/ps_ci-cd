@@ -21,8 +21,8 @@ Describe 'Check Glass Type' {
         $cocktail.glassType | Should -Be "Cocktail glass"
     }
 
-    It 'This Test Will Fail' {
+    It 'First ingredient in margarita is Tequila' {
         $cocktail = GetCocktail("Margarita")
-        $cocktail.glassType | Should -Be "Hotdog"
+        $cocktail.ingredient[0].name | Should -Be "Tequila"
     }
 }
